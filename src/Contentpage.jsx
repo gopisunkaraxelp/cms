@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
+import { AiOutlineMenu } from "react-icons/ai";
 
 const Contentpage = () => {
   const [data, setData] = useState({});
@@ -11,7 +12,9 @@ const Contentpage = () => {
   const [usersList, setUsersList] = useState([]);
   const [content, setContent] = useState("");
 
-  const [dropdown, setDropdown] = useState("false");
+  const [dropdown, setDropdown] = useState(true);
+  
+  const [show, setShow]=useState(true);
 
   useEffect(() => {
     axios
@@ -73,17 +76,24 @@ const Contentpage = () => {
   console.log(content, "content=====>");
   return (
     <div className="flex flex-row z-40 h-[100vh]  ">
-      <div className="w-[250px] bg-white h-[100vh] position-fixed overflow-scroll ">
+      <div className="lg:w-[250px] md:w-[150px] sm:w-[100px] bg-slate-50 lg:h-[100vh] position-fixed overflow-scroll sm:h-[4vh]"
+      >
+       <p className="text-blue-700 p-2 " 
+          onClick={() => setShow(!show)}> <AiOutlineMenu style={{width:'25px', height:'25px' }} class=""/></p>
         {" "}
+        { show ? 
+        <div>
         {usersList?.map((item) => (
-          <div>
-            <div
-              class="text-sky-900 text-8px px-2  "
+          <div >
+            <div 
+              class="text-teal-900 text-8px px-2  "
+              
+              
               onClick={() => openDrop()}
             >
               <p>{item.title}</p>
             </div>
-
+           
             {!dropdown ? (
               <ul class="text-start text-blue-900 text-5px px-3 ">
                 <li>
@@ -120,23 +130,17 @@ const Contentpage = () => {
               </ul>
             ) : null}
           </div>
-        ))}
-        {/* <div>
-                      <Link to
-                        ={`/contentpage`}
-                        class="no-underline text-gray-800 text-xl">
-                      
-                        {each.subtitlename} pushpa
-                      </Link>
-                    </div> */}
+        ))} </div> : null
+        }
+       
       </div>
-      <div className="ml-[280px] text-center justify-center ">
-        <div>
-          <div class="mt-[6%] ">
+      <div className="lg:ml-[280px] md:ml-[180px] sm:ml-[100px] text-center justify-center ">
+        <div className="">
+          <div class="mt-[6%] ml-3px">
             {/* <Link to="/" target="_parent" className="btn btn-danger w-20 mx-5">
               Back
             </Link>  */}
-            <div class="border-2 border-green-400  ">{parse(content)}</div>
+            <div class="">{parse(content)}</div>
             <Link to="/" target="_parent" className="btn btn-danger w-20 mx-5">
               Back
             </Link>

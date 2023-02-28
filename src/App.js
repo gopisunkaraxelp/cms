@@ -1,9 +1,10 @@
 import "./App.css";
-// import Titel from './Title';
+
 
 import Nav from "./Nav";
 
 import Contentpage from "./Contentpage";
+import Example from "./Example";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
@@ -27,7 +28,7 @@ function App() {
                 <Route path="/:subtitle/:id" element={<Contentpage />} />
 
                 <Route path="/:title/:subtitle/:id" element={<Contentpage />} />
-
+                <Route path="/example" element={<Example/>}></Route>
               </Routes>
             </div>
           </div>
