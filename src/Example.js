@@ -300,7 +300,7 @@ const Example = () => {
   const [dropdown, setDropdown] = useState(true);
 
   const [show, setShow] = useState(true);
-
+   
   useEffect(() => {
     axios
       .get("http://localhost:9000/content")
@@ -353,7 +353,7 @@ const Example = () => {
 
   console.log(
     newContentsList,
-    "newContentsListlkvmmmmmmmmmmmmmmmmmmmskdnvlksdgggggg"
+    "newContentsListlkvmmmmmmmmmmmmmmmmmmmskdnvlksdgggg"
   );
 
   const htmlFromCMS = newContentsList;
@@ -385,7 +385,7 @@ const Example = () => {
                 <div>
                   <div
                     class="text-teal-900 text-8px px-2  "
-                    onClick={() => openDrop()}
+                    onClick={() => openDrop( )}
                   >
                     <p>{item.title}</p>
                     <p>{arr}</p>
