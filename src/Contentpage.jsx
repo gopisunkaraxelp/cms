@@ -57,7 +57,7 @@ const Contentpage = () => {
   };
 
   const openDrop = (item) => {
-    console.log(item, "item kishore");
+    console.log(item, "item");
     setDropDownContent(item);
     setDropdown(!dropdown);
   };
@@ -153,7 +153,7 @@ const Contentpage = () => {
                               `/${each.subtitlename}/${each._id}`
                             );
                           }}
-                          class="py-1 px-3"
+                          class="gap-1 px-3"
                         >
                           {each.subtitlename}
                         </div>

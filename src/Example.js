@@ -398,7 +398,7 @@ const Example = () => {
                           item?.subtitle?.map((each) => (
                             <div>
                               <div
-                                onClick={() => {
+                                onClick={() => {     
                                   onSubmit(each.content);
                                   window.history.replaceState(
                                     null,
